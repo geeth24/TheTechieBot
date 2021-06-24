@@ -2,7 +2,7 @@ import discord
 import os
 from discord.ext import commands
 
-bot = commands.Bot(command_prefix='techie')
+bot = commands.Bot(command_prefix='')
 
 
 @bot.event
@@ -16,7 +16,7 @@ async def on_message(message):
     if message.author == bot.user:
         return
 
-    if message.content.startswith('fuck') or message.content.startswith('shit') or message.content.startswith('bitch'):
+    if message.content.startswith('fuck') or message.content.startswith('shit') or message.content.startswith('bitch') or message.content.startswith('hari'):
         await message.delete()
         await message.channel.send(message.content)
 
