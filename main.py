@@ -2,11 +2,12 @@ import discord
 import os
 from discord.ext import commands
 
-bot = commands.Bot(command_prefix='$')
+bot = commands.Bot(command_prefix='techie')
 
 
 @bot.event
 async def on_ready():
+    await bot.change.presense(status=discord.Status.online, activity=discord.Status('tess'))
     print('We have logged in as {0.user}'.format(bot))
 
 
