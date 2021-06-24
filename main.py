@@ -25,6 +25,14 @@ async def on_message(message):
 async def test(ctx, arg):
     await ctx.send(arg)
 
+@bot.command()
+async def lock(ctx, channel : discord.TextChannel=None):
+    channel = channel or ctx.channel
+    overwrite = channel.overwrites_for(ctx.guild.default_role)
+    overwrite.send_messages = False
+    await channel.set_permissions(ctx.guild.default_role, overwrite=overwrite)
+    await ctx.send('Channel locked.')
+
 
 @bot.command()
 async def kick(ctx, member: discord.Member, *, reason=None):
