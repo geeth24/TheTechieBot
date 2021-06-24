@@ -1,9 +1,6 @@
 import discord
 import os
-import random
 from discord.ext import commands
-
-from discord.ext.commands import command, has_permissions
 
 bot = commands.Bot(command_prefix='$')
 
@@ -21,7 +18,6 @@ async def on_message(message):
     if message.content.startswith('fuck') or message.content.startswith('shit') or message.content.startswith('bitch'):
         await message.delete()
         await message.channel.send(message.content)
-
 
 
 @bot.command()
