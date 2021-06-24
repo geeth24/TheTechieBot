@@ -7,7 +7,7 @@ bot = commands.Bot(command_prefix='techie')
 
 @bot.event
 async def on_ready():
-    await bot.change.presense(status=discord.Status.online, activity=discord.Game('tess'))
+    await bot.change_presence(activity=discord.Game('The Techie'))
     print('We have logged in as {0.user}'.format(bot))
 
 
