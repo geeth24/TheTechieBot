@@ -17,7 +17,7 @@ async def on_message(message):
         return
 
     if message.content.startswith('fuck') or message.content.startswith('shit') or message.content.startswith(
-            'bitch') or message.content.startswith('hari'):
+            'bitch'):
         await message.delete()
         await message.channel.send(message.content)
 
