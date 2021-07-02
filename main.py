@@ -22,7 +22,7 @@ async def on_message(message):
 
     if message.content.startswith('pass'):
         await message.delete()
-        await message.channel.send("".join(choice(character) for x in range(randint(8, 16))))
+        await message.author.send("".join(choice(character) for x in range(randint(8, 16))))
 
 
 """
