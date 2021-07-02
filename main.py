@@ -21,11 +21,12 @@ async def on_message(message):
     randomizer = "".join(choice(character) for x in range(6)) + "-" + "".join(choice(character) for x in range(6))
     randomizer = randomizer + randomizer
     profanity.load_censor_words()
+    loaded_names = profanity.load_censor_words()
     # For Bad Words
     if message.author == bot.user:
         return
 
-    if 'fuck' in message.content:
+    if loaded_names in message.content:
         await message.delete()
         censored_text = profanity.censor(message.content)
         await message.channel.send("Stop cussing you bum " + message.author.mention + "!")
