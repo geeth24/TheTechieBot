@@ -22,8 +22,8 @@ async def on_message(message):
     if message.author == bot.user:
         return
 
-    if message.content.startswith('pass'):
-        await message.channel.send("Please Check Your Dms")
+    if message.content.startswith('gen'):
+        await message.channel.send("Please Check Your Dms " + message.author.mention())
         await message.author.send(f"```{randomizer}```")
 
 
