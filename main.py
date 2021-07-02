@@ -19,17 +19,7 @@ async def on_ready():
 async def on_message(message):
     randomizer = "".join(choice(character) for x in range(6)) + "-" + "".join(choice(character) for x in range(6))
     randomizer = randomizer + randomizer
-
-    if message.author == bot.user:
-        return
-
-    if message.content.startswith('pass'):
-        await message.channel.send("Please Check Your Dms " + message.author.mention)
-        await message.author.send(f"```{randomizer}```")
-
-
-@bot.event
-async def on_message_bad(message):
+    # For Bad Words
     if message.author == bot.user:
         return
 
@@ -37,6 +27,13 @@ async def on_message_bad(message):
             'bitch'):
         await message.delete()
         await message.channel.send("Stop cussing you bum " + message.author.mention + "!")
+
+    if message.author == bot.user:
+        return
+
+    if message.content.startswith('pass'):
+        await message.channel.send("Please Check Your Dms " + message.author.mention)
+        await message.author.send(f"```{randomizer}```")
 
 
 @bot.command()
