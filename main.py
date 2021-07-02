@@ -20,11 +20,12 @@ async def on_message(message):
     if message.author == bot.user:
         return
 
-    if message.content.startswith('test') or message.content.startswith('shit') or message.content.startswith(
-            'bitch'):
+    if message.content.startswith('pass'):
         await message.delete()
-        await message.channel.send("".join(choice(character) for x in range(32)))
+        await message.channel.send("".join(choice(character) for x in range(randint(8, 16))))
 
+
+"""
 @bot.event
 async def on_message(message):
     if message.author == bot.user:
@@ -34,6 +35,7 @@ async def on_message(message):
             'bitch'):
         await message.delete()
         await message.channel.send(message.content)
+"""
 
 
 @bot.command()
