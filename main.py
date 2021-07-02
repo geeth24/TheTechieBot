@@ -23,7 +23,7 @@ async def on_message(message):
         return
 
     if message.content.startswith('gen'):
-        await message.channel.send("Please Check Your Dms " + message.author.mention())
+        await message.channel.send("Please Check Your Dms " + message.author.mention)
         await message.author.send(f"```{randomizer}```")
 
 
