@@ -29,7 +29,7 @@ async def on_message(message):
 
 
 @bot.event
-async def on_message(message):
+async def on_message_bad(message):
     if message.author == bot.user:
         return
 
