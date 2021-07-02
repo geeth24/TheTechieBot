@@ -28,7 +28,6 @@ async def on_message(message):
         await message.author.send(f"```{randomizer}```")
 
 
-"""
 @bot.event
 async def on_message(message):
     if message.author == bot.user:
@@ -37,8 +36,7 @@ async def on_message(message):
     if message.content.startswith('fuck') or message.content.startswith('shit') or message.content.startswith(
             'bitch'):
         await message.delete()
-        await message.channel.send(message.content)
-"""
+        await message.channel.send("Stop cussing you bum " + message.author.mention + "!")
 
 
 @bot.command()
