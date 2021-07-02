@@ -2,7 +2,7 @@ import discord
 import os
 from discord.ext import commands
 import string
-from random import randint, choice
+from random import choice
 
 bot = commands.Bot(command_prefix='$')
 
@@ -22,7 +22,7 @@ async def on_message(message):
 
     if message.content.startswith('pass'):
         await message.delete()
-        await message.author.send("".join(choice(character) for x in range(randint(8, 16))))
+        await message.author.send("".join(choice(character) for x in range(16)))
 
 
 """
