@@ -27,6 +27,7 @@ async def on_message(message):
             'bitch'):
         await message.delete()
         await message.channel.send("Stop cussing you bum " + message.author.mention + "!")
+        await message.channel.send(message.author.mention + "said" + message.content)
 
     if message.author == bot.user:
         return
