@@ -6,7 +6,7 @@ from random import choice
 
 bot = commands.Bot(command_prefix='$')
 
-character = string.ascii_letters + string.punctuation + string.digits
+character = string.ascii_letters + string.digits
 
 
 @bot.event
