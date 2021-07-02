@@ -8,8 +8,6 @@ from better_profanity import profanity
 bot = commands.Bot(command_prefix='$')
 
 character = string.ascii_letters + string.digits
-loaded_names = profanity.load_censor_words()
-words = ["word"]
 
 
 @bot.event
@@ -22,6 +20,9 @@ async def on_ready():
 async def on_message(message):
     randomizer = "".join(choice(character) for x in range(6)) + "-" + "".join(choice(character) for x in range(6))
     randomizer = randomizer + randomizer
+
+    custom = ['hari']
+    profanity.add_censor_words(custom)
     profanity.load_censor_words()
 
     # For Bad Words
