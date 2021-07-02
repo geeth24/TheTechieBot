@@ -3,6 +3,8 @@ import os
 from discord.ext import commands
 import string
 from random import choice
+from better_profanity import profanity
+
 
 bot = commands.Bot(command_prefix='$')
 
@@ -19,6 +21,7 @@ async def on_ready():
 async def on_message(message):
     randomizer = "".join(choice(character) for x in range(6)) + "-" + "".join(choice(character) for x in range(6))
     randomizer = randomizer + randomizer
+    profanity.load_censor_words()
     # For Bad Words
     if message.author == bot.user:
         return
@@ -26,8 +29,9 @@ async def on_message(message):
     if message.content.startswith('fuck') or message.content.startswith('shit') or message.content.startswith(
             'bitch'):
         await message.delete()
+        censored_text = profanity.censor(message.content)
         await message.channel.send("Stop cussing you bum " + message.author.mention + "!")
-        await message.channel.send(message.author.mention + "said" + message.content)
+        await message.channel.send(message.author.mention + " said " + censored_text)
 
     if message.author == bot.user:
         return
