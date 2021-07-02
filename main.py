@@ -7,7 +7,6 @@ from random import choice
 bot = commands.Bot(command_prefix='$')
 
 character = string.ascii_letters + string.punctuation + string.digits
-randomizer = "".join(choice(character) for x in range(16))
 
 
 @bot.event
@@ -18,6 +17,8 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
+    randomizer = "".join(choice(character) for x in range(16))
+
     if message.author == bot.user:
         return
 
