@@ -23,7 +23,7 @@ async def on_message(message):
 
     if message.content.startswith('pass'):
         await message.channel.send("Please Check Your Dms")
-        await message.author.send("```{"".join(choice(character) for x in range(16))}```")
+        await message.author.send(f"```{randomizer}```")
 
 
 """
