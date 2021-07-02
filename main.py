@@ -5,7 +5,6 @@ import string
 from random import choice
 from better_profanity import profanity
 
-
 bot = commands.Bot(command_prefix='$')
 
 character = string.ascii_letters + string.digits
@@ -26,8 +25,7 @@ async def on_message(message):
     if message.author == bot.user:
         return
 
-    if message.content.startswith('fuck') or message.content.startswith('shit') or message.content.startswith(
-            'bitch'):
+    if 'fuck' in message.content:
         await message.delete()
         censored_text = profanity.censor(message.content)
         await message.channel.send("Stop cussing you bum " + message.author.mention + "!")
