@@ -17,7 +17,8 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-    randomizer = "".join(choice(character) for x in range(16))
+    randomizer = "".join(choice(character) for x in range(6)) + "-" + "".join(choice(character) for x in range(6))
+    randomizer = randomizer + randomizer
 
     if message.author == bot.user:
         return
