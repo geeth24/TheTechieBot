@@ -1,2 +1,2 @@
-workerMain: python main.py
-workerCommands: python commands.py
+worker: python main.py
+worker1: python commands.py
