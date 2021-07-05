@@ -33,7 +33,7 @@ async def on_message(message):
         await message.channel.send("Stop cussing you bum " + message.author.mention + "!")
         mod_channel = bot.get_channel(861396298888773703)
         await mod_channel.send(message.author.mention + " said " + censored_text)
-        print(message.author.mention + " said " + censored_text)
+        print(f'```{message.author.mention} + " said " + {censored_text}```')
 
     if message.author == bot.user:
         return
