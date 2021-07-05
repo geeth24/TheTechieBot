@@ -13,7 +13,7 @@ character = string.ascii_letters + string.digits
 @bot.event
 async def on_ready():
     await bot.change_presence(activity=discord.Game('The Techie'))
-    print('We have logged in as {0.user}'.format(bot))
+    print('main.py logged in as {0.user}'.format(bot))
 
 
 @bot.event
@@ -32,9 +32,8 @@ async def on_message(message):
         censored_text = profanity.censor(message.content)
         await message.channel.send("Stop cussing you bum " + message.author.mention + "!")
         mod_channel = bot.get_channel(861396298888773703)
-        mod_message = message.author + " said " + message.content
-        await mod_channel.send(f'```{mod_message}```')
-        # print(f'```{message.author.mention} + " said " + {censored_text}```')
+        await mod_channel.send(message.author.mention + " said " + censored_text)
+        print(f'```{message.author.mention} + " said " + {censored_text}```')
 
     if message.author == bot.user:
         return
@@ -53,17 +52,5 @@ async def on_message(message):
     if count == words[0]:
         await msg.channel.send(msg.author.mention + " said " + words[0])
 """
-
-
-@bot.command()
-async def test(ctx, arg):
-    await ctx.send(arg)
-
-
-@bot.command()
-async def kick(ctx, member: discord.Member, *, reason=None):
-    await member.kick(reason=reason)
-    await ctx.send(f'User {member} has been kicked.')
-
 
 bot.run(os.getenv('TOKEN'))
