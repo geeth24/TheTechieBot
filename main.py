@@ -21,8 +21,6 @@ async def on_message(message):
     randomizer = "".join(choice(character) for x in range(6)) + "-" + "".join(choice(character) for x in range(6))
     randomizer = randomizer + randomizer
 
-    custom = ['hari']
-    profanity.add_censor_words(custom)
     profanity.load_censor_words()
 
     # For Bad Words
@@ -33,7 +31,8 @@ async def on_message(message):
         await message.delete()
         censored_text = profanity.censor(message.content)
         await message.channel.send("Stop cussing you bum " + message.author.mention + "!")
-        await message.channel.send(message.author.mention + " said " + censored_text)
+        mod_channel = bot.get_channel(861396298888773703)
+        await mod_channel.send(message.author.mention + " said " + censored_text)
 
     if message.author == bot.user:
         return
